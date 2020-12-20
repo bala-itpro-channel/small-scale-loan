@@ -1,0 +1,52 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "firstName": "Bala",
+      "lastName": "G",
+      "age": 40,
+      "email": "bala.itpro.channel@gmail.com",
+      "bankId": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Karthik",
+      "lastName": "G",
+      "age": 41,
+      "email": "bala.itpro.channel@gmail.com",
+      "bankId": 1
+    },
+    {
+      "id": 3,
+      "firstName": "Raj",
+      "lastName": "G",
+      "age": 42,
+      "email": "bala.itpro.channel@gmail.com",
+      "bankId": 2
+    }
+  ],
+  "banks": [
+    {
+      "id": 1,
+      "name": "TD Bank",
+      "headOffice": true,
+      "unit": "#299",
+      "street": "8 Main street",
+      "city": "Brampton",
+      "province": "ON",
+      "country": "Canada",
+      "postalCode": "L8R 3U7"
+    },
+    {
+      "id": 2,
+      "name": "RBC Bank",
+      "headOffice": true,
+      "unit": "#199",
+      "street": "18 Main street",
+      "city": "Brampton",
+      "province": "ON",
+      "country": "Canada",
+      "postalCode": "L8R 5U7"
+    }
+  ]
+}
