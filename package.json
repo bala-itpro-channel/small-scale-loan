@@ -1,31 +1,49 @@
 {
   "name": "small-scale-loan",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Small scale loan application",
-  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "json-server": "^0.16.3",
+    "npm-run-all": "^4.1.5"
+  },
   "scripts": {
-    "mock-server": "json-server ./json-server/db.json --port 5000 --watch --middlewares ./json-server/header.js",
-    "test": "npm test"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "npm test",
+    "eject": "react-scripts eject",
+    "mock-server": "json-server ./json-server/db.json --port 5000 --watch --middlewares ./json-server/header.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bala-itpro-channel/small-scale-loan.git"
   },
-  "keywords": [
-    "small",
-    "loan",
-    "for",
-    "personal",
-    "and",
-    "business"
-  ],
-  "author": "Balakrishnan & Siva",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bala-itpro-channel/small-scale-loan/issues"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "homepage": "https://github.com/bala-itpro-channel/small-scale-loan#readme",
-  "devDependencies": {
-    "json-server": "^0.16.3"
-  }
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "author": "Balakrishnan & Siva"
 }
