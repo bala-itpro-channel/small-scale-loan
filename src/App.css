@@ -1,3 +1,85 @@
+.fas {
+  font-family: 'Font Awesome 5 Free';
+}
+
 .strike-through {
   text-decoration: line-through;
 }
+/* Menu css **/
+nav {
+  padding: 0;
+  display: none;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  background: red;
+  min-height: 200px;
+  top: 0;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: lightgrey;
+}
+
+nav.open {
+  display: flex;
+}
+
+nav.close {
+  display: none;
+}
+
+nav a {
+  padding: 10px;
+  border-bottom: 1px solid #FFF;
+}
+
+nav a:first-of-type {
+  margin-top: 40px;
+}
+
+nav a:last-child {
+  border-bottom: 0;
+}
+
+nav a:hover {
+  background: white;
+  border-bottom: 1px solid #000;
+}
+
+nav.menu .close-button {
+  right: 10px;
+  top: 10px;
+  text-align: center;
+  font-weight: 900;
+  cursor: pointer;
+  position: absolute;
+}
+
+header {
+  align-items: center;
+  display: flex;
+}
+
+header > .title {
+  padding-left: 10px;
+}
+
+.fa-bars {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.fa-money-bill-alt {
+  font-size: 60px;
+  float: left;
+}
+
+main {
+  clear: both;
+}
+

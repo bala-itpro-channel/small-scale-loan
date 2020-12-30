@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Todo from './Todo.js';
+import './Todos.css';
 import AddForm from './AddForm.js';
 
 function Todos() {
@@ -22,7 +23,6 @@ function Todos() {
     }
   ]
 
-
   const [todos, setTodos] = useState(toDoList);
 
   const removeTodo = index => {
@@ -38,13 +38,13 @@ function Todos() {
 
   const markCompleted = index => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
     setTodos(newTodos);
   };
 
   return (
     <section>
-      <div>
+      <div className="todo-list">
         {
           todos.map((todo, index) => {
             return (

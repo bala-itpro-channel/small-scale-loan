@@ -10,16 +10,18 @@ const AddForm = ({addTodo}) => {
   }
 
   return (
-    <form onSubmit={submitForm}>
-      <input 
-        className="input"
-        type="text"
-        value={task}
-        placeholder="Add to do task"
-        onChange={e => setTask(e.target.value)}
-      />
-      <input type="submit" value="Submit" />
-    </form>
+    <React.Fragment>
+      <form onSubmit={submitForm}>
+        <input 
+          className="input"
+          type="text"
+          value={task}
+          placeholder="Add to do task"
+          onChange={e => setTask(e.target.value)}
+        />
+        <button type="submit" value="Submit" className="submit">Submit</button>
+      </form>
+    </React.Fragment>
   );
 }
 
