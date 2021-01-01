@@ -10,6 +10,7 @@ import { BrowserRouter as Router,
 var classNames = require('classnames');
 
 function App() {
+
   const [menu, setMenu] = useState(false);
   const menuClicked = () => {
     setMenu(!menu);
@@ -17,15 +18,17 @@ function App() {
 
   return (                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     <Router>
-      <div className="App">
+  
+      <div className={ classNames({'app': true, 'menu-open': menu}) }>
+
         <header className="App-header">
-          <i class="fas fa-money-bill-alt" />
-          <h2 class="title">Small scale loan</h2>
+          <i className="fas fa-money-bill-alt" />
+          <h2 className="title">Small scale loan</h2>
           <i className="fas fa-bars" onClick={menuClicked}></i>
         </header>
 
         <nav className={ classNames({'menu': true, 'open': menu, 'close': !menu}) }>
-          <i class="fas fa-bars close-button" onClick={ () => { setMenu(!menu); } }></i>
+          <i className="fas fa-bars close-button" onClick={ () => { setMenu(!menu); } }></i>
           <Link to="/">Home</Link>
           <Link to="/">About</Link>
           <Link to="/todo">Todo</Link>
@@ -37,11 +40,21 @@ function App() {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/todo" exact>
+            <Route path="/todo">
               <Todos />
             </Route>
           </Switch>
         </main>
+
+        <footer>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">About</Link></li>
+            <li><Link to="/todo">Todo</Link></li>
+            <li><Link to="/">Contact us</Link></li>
+          </ul>
+        </footer>
+        
       </div>
     </Router>
   );

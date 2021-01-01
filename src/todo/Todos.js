@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Todo from './Todo.js';
+import Todo from './Todo/Todo.js';
 import './Todos.css';
-import AddForm from './AddForm.js';
+import AddForm from './Add/AddForm.js';
+var classNames = require('classnames');
 
 function Todos() {
   const toDoList = [

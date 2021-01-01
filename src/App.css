@@ -1,16 +1,21 @@
+.app {
+  width: 100%;
+}
+
+/* .app.menu-open {
+  width: calc(100% - 200px);
+} */
+
 .fas {
   font-family: 'Font Awesome 5 Free';
 }
 
-.strike-through {
-  text-decoration: line-through;
-}
 /* Menu css **/
 nav {
   padding: 0;
   display: none;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   right: 0;
   background: red;
   min-height: 200px;
@@ -20,6 +25,7 @@ nav {
   flex-direction: column;
   margin: 0;
   background: lightgrey;
+  z-index: 2;
 }
 
 nav.open {
@@ -60,6 +66,11 @@ nav.menu .close-button {
 header {
   align-items: center;
   display: flex;
+  background-color: white;
+  padding: 0 10px;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
 }
 
 header > .title {
@@ -71,15 +82,30 @@ header > .title {
   cursor: pointer;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 30px;
 }
 
 .fa-money-bill-alt {
   font-size: 60px;
   float: left;
+  color: orange;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 main {
-  clear: both;
+  min-height: 100vh;
 }
 
+.app::after {
+  content: "";
+  opacity: 0.5;
+  background-image: url('./assets/home-bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
