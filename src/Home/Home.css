@@ -1,15 +1,3 @@
-details {
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  padding: .5em .5em 0;
-}
-
-summary {
-  font-weight: bold;
-  margin: -.5em -.5em 0;
-  padding: .5em;
-}
-
 details[open] {
   padding: .5em;
 }
@@ -36,6 +24,7 @@ details[open] summary {
 .pimg2 {
   background-image: url('./../assets/home-bg2.jpg');
   height: 400px;
+  /* height: 100vh; */
 }
 
 .section {
@@ -46,6 +35,7 @@ details[open] summary {
 .section-light {
   background-color: #F4F4F4;
   color: #666;
+  /* height: 100vh; */
 }
 
 .section-dark {
@@ -69,3 +59,12 @@ details[open] summary {
   color: #FFF;
   padding: 20px;
 }
+
+/* .home-container {
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+}
+
+.home-container > * {
+  scroll-snap-align: start;
+} */

@@ -1,47 +1,27 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import Todo from './Todo/Todo.js';
-import './Todos.css';
+import './Todos.scss';
 import AddForm from './Add/AddForm.js';
+import * as Actions from './../Redux/Actions';
+import * as ActionTypes from './../Redux/ActionTypes'
 var classNames = require('classnames');
 
-function Todos() {
-  const toDoList = [
-    {
-      task: 'Go to shopper drugmart',
-      isCompleted: false
-    },
-    {
-      task: 'Go to park',
-      isCompleted: false
-    },
-    {
-      task: 'Attend music class',
-      isCompleted: false
-    },
-    {
-      task: 'Go to dance class',
-      isCompleted: false
-    }
-  ]
-
-  const [todos, setTodos] = useState(toDoList);
-
-  const removeTodo = index => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
-  };
+function Todos({todos, todoEdit, todoAdd, todoDelete}) {
+  const removeTodo = task => {
+    // dispatch(Actions.todoDelete(task));
+    todoDelete(task);
+  }
 
   const addTodo = task => {
-    const newTodos = [...todos, {task, isCompleted: false}]
-    setTodos(newTodos);
-  };
+    // dispatch(Actions.todoAdd(task));
+    todoAdd(task);
+  }
 
-  const markCompleted = index => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
-    setTodos(newTodos);
-  };
+  const markCompleted = task => {
+    // dispatch(Actions.todoEdit(task));
+    todoEdit(task);
+  }
 
   return (
     <section>
@@ -49,7 +29,8 @@ function Todos() {
         {
           todos.map((todo, index) => {
             return (
-              <Todo key={index} index={index} todo={todo} 
+              <Todo key={index} index={index} 
+                todo={todo} 
                 removeTodo={removeTodo}
                 markCompleted={markCompleted}>
                 {todo.task}
@@ -63,4 +44,14 @@ function Todos() {
   );
 }
 
-export default Todos;
+const mapStateToProps = state => ({
+  todos: state.todos
+})
+
+const mapDispatchToProps = dispatch => ({
+  todoEdit: task => dispatch(Actions.todoEdit(task)),
+  todoDelete: task => dispatch(Actions.todoDelete(task)),
+  todoAdd: task => dispatch(Actions.todoAdd(task))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todos);

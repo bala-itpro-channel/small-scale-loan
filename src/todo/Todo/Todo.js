@@ -1,14 +1,14 @@
-import './Todo.css';
+import './Todo.scss';
 var classNames = require('classnames');
 
 const Todo = ({index, todo, removeTodo, markCompleted})  => {
 
   const removeItem = () => {
-    removeTodo(index);
+    removeTodo(todo.task);
   }
 
   const markCompletedFn = () => {
-    markCompleted(index);
+    markCompleted(todo.task);
   }
 
   return (

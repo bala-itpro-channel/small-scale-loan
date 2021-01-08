@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import todoReducer from './Redux/Reducers'
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+
+// Action Types
+// Actions
+// Reducers
+// applyMiddleware(composeWithDevTools, thunkMiddleware)
+const middleware = [ thunk ];
+const store = createStore(
+  todoReducer,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
