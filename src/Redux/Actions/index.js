@@ -20,3 +20,10 @@ export const todoDelete = task => ({
     task
   }
 });
+
+export const todoSetdata = (todos) => ({
+  type: ActionTypes.TODO_SET_DATA,
+  payload: { 
+    todos 
+  }
+});

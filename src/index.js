@@ -5,17 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import todoReducer from './Redux/Reducers'
+import todoReducer from './Redux/Reducers/toDoReducer'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import rootReducer from './Redux/Reducers/index';
 
 // Action Types
 // Actions
 // Reducers
 // applyMiddleware(composeWithDevTools, thunkMiddleware)
 const middleware = [ thunk ];
+
 const store = createStore(
-  todoReducer,
+  rootReducer,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
