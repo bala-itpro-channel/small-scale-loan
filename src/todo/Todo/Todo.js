@@ -14,7 +14,6 @@ const Todo = ({todos, index, todo, removeTodo, markCompleted})  => {
 
   return (
     <div className="task">
-      <span>{todos.length}-</span>
       <div className="index">{index+1}</div>
       <div
         title={todo.task}
@@ -33,11 +32,4 @@ const Todo = ({todos, index, todo, removeTodo, markCompleted})  => {
   );
 }
 
-const mapStateToProps = state => {
-  console.log(state.todoReducer.todos)
-  return {
-    todos: state.todoReducer.todos
-  }
-}
-
-export default connect(mapStateToProps)(Todo);
+export default Todo;

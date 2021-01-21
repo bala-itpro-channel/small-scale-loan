@@ -56,7 +56,7 @@ function Todos({todos, user, todoEdit, todoAdd, todoDelete, todoSetdata}) {
                 markCompleted={markCompleted}>
                 {todo.task}
               </Todo>
-            )
+            );
           })
         }
       </div>
