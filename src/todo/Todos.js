@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Todo from './Todo/Todo.js';
 import './Todos.scss';
 import AddForm from './Add/AddForm.js';
 import * as Actions from './../Redux/Actions';
-import * as ActionTypes from './../Redux/ActionTypes'
 var classNames = require('classnames');
 
-function Todos({todos, user, todoEdit, todoAdd, todoDelete, todoSetdata}) {
-  const removeTodo = task => {
-    todoDelete(task);
-  }
+function Todos() {
+  // useSelector Hook
+  const todos = useSelector(state => state.todoReducer.todos);
+  const user = useSelector(state => state.userReducer.user);
 
-  const addTodo = task => {
-    todoAdd(task);
-  }
-
-  const markCompleted = task => {
-    todoEdit(task);
-  }
+  // useDispatch Hook
+  const dispatch = useDispatch();
+  const markCompleted =  task => dispatch(Actions.todoEdit(task));
+  const removeTodo = task => dispatch(Actions.todoDelete(task));
+  const addTodo = task => dispatch(Actions.todoAdd(task));
+  const todoSetdata = todos => dispatch(Actions.todoSetdata(todos));
 
   useEffect(() => {
     // Http call here to fetch data and set it in STORE
@@ -65,16 +63,4 @@ function Todos({todos, user, todoEdit, todoAdd, todoDelete, todoSetdata}) {
   );
 }
 
-const mapStateToProps = state => ({
-  todos: state.todoReducer.todos,
-  user: state.userReducer.user
-})
-
-const mapDispatchToProps = dispatch => ({
-  todoEdit: task => dispatch(Actions.todoEdit(task)),
-  todoDelete: task => dispatch(Actions.todoDelete(task)),
-  todoAdd: task => dispatch(Actions.todoAdd(task)),
-  todoSetdata: todos => dispatch(Actions.todoSetdata(todos))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todos);
+export default Todos;
