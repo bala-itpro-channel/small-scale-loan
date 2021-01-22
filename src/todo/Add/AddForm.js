@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import './AddForm.css';
+import './AddForm.scss';
 var classNames = require('classnames');
 
 const AddForm = ({addTodo}) => {

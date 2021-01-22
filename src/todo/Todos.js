@@ -1,47 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Todo from './Todo/Todo.js';
-import './Todos.css';
+import './Todos.scss';
 import AddForm from './Add/AddForm.js';
+import * as Actions from './../Redux/Actions';
 var classNames = require('classnames');
 
 function Todos() {
-  const toDoList = [
-    {
-      task: 'Go to shopper drugmart',
-      isCompleted: false
-    },
-    {
-      task: 'Go to park',
-      isCompleted: false
-    },
-    {
-      task: 'Attend music class',
-      isCompleted: false
-    },
-    {
-      task: 'Go to dance class',
-      isCompleted: false
-    }
-  ]
+  // useSelector Hook
+  const todos = useSelector(state => state.todoReducer.todos);
+  const user = useSelector(state => state.userReducer.user);
 
-  const [todos, setTodos] = useState(toDoList);
+  // useDispatch Hook
+  const dispatch = useDispatch();
+  const markCompleted =  task => dispatch(Actions.todoEdit(task));
+  const removeTodo = task => dispatch(Actions.todoDelete(task));
+  const addTodo = task => dispatch(Actions.todoAdd(task));
+  const todoSetdata = todos => dispatch(Actions.todoSetdata(todos));
 
-  const removeTodo = index => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
-  };
-
-  const addTodo = task => {
-    const newTodos = [...todos, {task, isCompleted: false}]
-    setTodos(newTodos);
-  };
-
-  const markCompleted = index => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
-    setTodos(newTodos);
-  };
+  useEffect(() => {
+    // Http call here to fetch data and set it in STORE
+    todoSetdata(
+      [
+        {
+          task: 'Go to shopper drugmartt',
+          isCompleted: false
+        },
+        {
+          task: 'Go to park',
+          isCompleted: false
+        },
+        {
+          task: 'Attend music class',
+          isCompleted: false
+        },
+        {
+          task: 'Go to dance class',
+          isCompleted: false
+        }
+      ]
+    );
+  }, []);
 
   return (
     <section>
@@ -49,12 +48,13 @@ function Todos() {
         {
           todos.map((todo, index) => {
             return (
-              <Todo key={index} index={index} todo={todo} 
+              <Todo key={index} index={index} 
+                todo={todo} 
                 removeTodo={removeTodo}
                 markCompleted={markCompleted}>
                 {todo.task}
               </Todo>
-            )
+            );
           })
         }
       </div>

@@ -1,14 +1,15 @@
-import './Todo.css';
+import './Todo.scss';
+import { connect } from 'react-redux';
 var classNames = require('classnames');
 
-const Todo = ({index, todo, removeTodo, markCompleted})  => {
+const Todo = ({todos, index, todo, removeTodo, markCompleted})  => {
 
   const removeItem = () => {
-    removeTodo(index);
+    removeTodo(todo.task);
   }
 
   const markCompletedFn = () => {
-    markCompleted(index);
+    markCompleted(todo.task);
   }
 
   return (

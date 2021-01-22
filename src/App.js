@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.scss';
 import Todos from './Todo/Todos';
 import Home from "./Home/Home";
 import { BrowserRouter as Router, 
